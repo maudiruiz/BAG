@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gif.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @gif.url %>
+</p>
+
+<p>
+  <strong>Extra:</strong>
+  <%= @gif.extra %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @gif.color %>
+</p>
+
+<%= link_to 'Edit', edit_gif_path(@gif) %> |
+<%= link_to 'Back', gifs_path %>

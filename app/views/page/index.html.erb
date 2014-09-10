@@ -1,0 +1,267 @@
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>#BetterCallBag</title>
+
+    <!-- Bootstrap core CSS -->
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<!--- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> ---->
+<style type="text/css">
+  @import url('http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,300');
+
+
+body {
+  background: url('assets/its_a_trap.gif') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  color:#fff;
+    background-color:#333;
+    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+}
+
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Custom navbar */
+.navbar-brand  {
+    padding-left: 30px;
+    padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  opacity: 1;
+} 
+.navbar-nav>li{
+  padding-top: 35px;
+  font-family: Georgia;
+  font-style: italic;
+  font-size: 26px;
+  color: black;
+
+}
+.navbar-nav>.active>a {
+  opacity:.6;
+}
+.sidebar{
+
+	background: rgba(0, 0, 0, 0.6);
+
+	border-color: black;
+	height: 100%;
+	position: absolute;
+}
+/*.footer{
+  background-color: black;
+  color: white;
+  bottom: 0;
+  position: fixed;
+  height: 50px; 
+      padding-left: 30px;
+    padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}*/
+.nav-footer{
+  font-size: 17px;
+    font-family: Georgia;
+  font-style: italic;
+  padding-top: 15px;
+
+  }
+.logo{
+	background-image: url('assets/logo132w.png');
+	width: 100px;
+	height: 100px;
+	background-size: 100px;
+	background-repeat: no-repeat;
+	margin: 15px;
+}
+.title{
+	    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+	    font-size: 22px;
+	    font-style: italic;
+	    margin: 28px 10px 10px -20px;
+	    max-width: 200px;
+	    font-weight: 600;
+	     -webkit-font-smoothing: antialiased;
+	     line-height: 24px;
+
+}
+.hashtag{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	margin-left: -20px;
+
+}
+.headtitle{
+	margin-top: 20px;
+}
+.content1{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 25px;
+	line-height: 30px;
+	-webkit-font-smoothing: antialiased;
+	margin-top: 40px;
+	font-weight: 300;
+
+}
+.content1 b{
+font-weight: 600;
+}
+.signuform{
+	color: white;
+	font-size: 20px;
+	font-weight: 300;
+	background-color: #93cefb;
+	border-color: #93cefb;
+	border:0;
+		-webkit-font-smoothing: antialiased;
+
+}
+.submitmail{
+font-size: 16px;
+margin-top:-32px;
+background-color: #33a6ff;
+border:0;
+}
+.contact{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 17px;
+	font-style: italic;
+	line-height: 22px;
+	-webkit-font-smoothing: antialiased;
+	margin-top: 40px;
+	font-weight: 300;
+
+}
+#spam{ 
+	font-size: 15px;
+	margin-bottom: -20px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+	.signuform{
+		float: left;
+		margin-bottom: 10px;
+	}	
+	.content1{
+		margin-top: 20px;
+	}
+	.sidebar{
+		height: 150%;
+
+
+	}
+	#spam{
+		margin-bottom: 20px;
+	}
+	.container-full{
+/*		position: fixed;*/
+	}
+
+}
+
+
+</style>
+
+<div class="container-full">
+      
+      <div class="sidebar col-md-4">
+         <div class="navbar-header container">
+			<div class="row headtitle">
+			  <div class="col-xs-6 logo"></div>
+			  <div class="col-xs-6 ">
+				  <div class="title ticker"> <!-- es una aceleradora 3D -->
+
+					<ul>
+					   <% @phrases.each do |phrase| %>
+							<li><%= phrase.title %>		</li>
+					    <% end %>
+  					</ul>
+
+
+				  </div>
+				  <a href="https://twitter.com/search?q=bettercallbag" class="hashtag">#bettercallbag</a>
+			  </div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-4 content1"><b>Suscríbete a nuestra lista de correo</b>
+ 				y recibe noticias sobre proyectos y búsquedas de talento.*</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 content1"><!-- Begin MailChimp Signup Form -->
+					<div id="mc_embed_signup">
+					<form action="//bettercallbag.us9.list-manage.com/subscribe/post?u=dac550a663439810a5536112e&amp;id=682c542446" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+					<div class="mc-field-group">
+						<label for="mce-EMAIL"></span>
+					</label>
+						<input type="email" value="tu dirección de correo"  name="EMAIL" class="required email col-md-8 signuform" id="mce-EMAIL">
+					</div>
+						<div id="mce-responses" class="clear">
+							<div class="response" id="mce-error-response" style="display:none"></div>
+							<div class="response" id="mce-success-response" style="display:none"></div>
+						</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					    <div style="position: absolute; left: -5000px;"><input type="text" name="b_dac550a663439810a5536112e_682c542446" tabindex="-1" value=""></div>
+					    <div class="clear"><input type="submit" value="Enviar" name="subscribe" id="mc-embedded-subscribe" class="button col-md-4 submitmail"></div>
+					</form>
+					<p id="spam">*no spam</p>
+					</div>
+
+					<!--End mc_embed_signup--></div>
+			</div>
+			<div class="row">
+				<div class="contact">
+				llámanos al</br>
+				<a>+52 (55) 52842836</a></br></br>
+				escríbenos a</br>
+				<a href="mailto:bag@bettercallbag.com">bag@bettercallbag.com</a></br></br>
+				o escribe
+				<a href="">#bettercallbag</a>
+				en twitter
+				</div>
+			</div>
+
+
+
+        </div>
+ 
+      </div>
+
+</div>
+
+	<script type="text/javascript">
+	
+		$( "#mce-EMAIL" ).click(function() {	
+		  $( this ).val('');
+		});
+
+		$( "#mce-EMAIL" ).focusout(function() {
+			if ( $( this ).val() == ""){
+				$( this ).val('tu dirección de correo');
+			}
+		});
+		
+
+	</script>

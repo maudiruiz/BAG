@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @phrase.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @phrase.description %>
+</p>
+
+<p>
+  <strong>Extra:</strong>
+  <%= @phrase.extra %>
+</p>
+
+<%= link_to 'Edit', edit_phrase_path(@phrase) %> |
+<%= link_to 'Back', phrases_path %>
