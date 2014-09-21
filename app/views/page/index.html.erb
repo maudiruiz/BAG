@@ -3,8 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="author" content=""> 
+    <link rel="icon" href="http://ilumin.me/bag/favicon.ico">
 
     <title>#BetterCallBag</title>
 
@@ -15,6 +15,7 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,9 +28,9 @@
 <style type="text/css">
   @import url('http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,300');
 
-
+ 
 body {
-  background: url('assets/its_a_trap.gif') no-repeat center center fixed;
+  background: url('<% @things.each do |gif| %><%= gif.url %><% end %>') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -44,7 +45,6 @@ body {
   margin: 0 auto;
   width: 100%;
 }
-
 /* Custom navbar */
 .navbar-brand  {
     padding-left: 30px;
@@ -71,6 +71,7 @@ body {
 	border-color: black;
 	height: 100%;
 	position: absolute;
+	width: 150px;
 }
 /*.footer{
   background-color: black;
@@ -91,7 +92,8 @@ body {
 
   }
 .logo{
-	background-image: url('assets/logo132w.png');
+	background-image: url('/assets/logo132w-bf3163734b13dc8f3d47b9bf183e99ef.png');
+
 	width: 100px;
 	height: 100px;
 	background-size: 100px;
@@ -154,11 +156,26 @@ border:0;
 	-webkit-font-smoothing: antialiased;
 	margin-top: 40px;
 	font-weight: 300;
+	padding-left: 10px;
 
 }
 #spam{ 
 	font-size: 15px;
 	margin-bottom: -20px;
+}
+#bagagain{
+	position: fixed;
+	right: 20px;
+	top: 20px;
+		font-family: 'Open Sans', sans-serif;
+			color: #33a6ff;
+			cursor: pointer;
+
+
+
+}
+.fade{
+	opacity: 0;
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
 	.signuform{
@@ -170,6 +187,7 @@ border:0;
 	}
 	.sidebar{
 		height: 150%;
+		width: 100%;
 
 
 	}
@@ -179,20 +197,41 @@ border:0;
 	.container-full{
 /*		position: fixed;*/
 	}
+	.fade{
+	opacity: 1;
+	}
 
 }
 
+.big{
+	font-size: 40px;
+	vertical-align: text-center;
+
+}
+#bagagain span{
+	float: left;
+}
+.topup{
+	padding-top: 10px;
+	padding-right: 10px;
+}
 
 </style>
 
 <div class="container-full">
+		<div id="bagagain" class="hidden-xs" onClick="window.location.reload()">
+			<span class="topup"><b>BAG AGAIN</b></span>
+			<span> <i class="big fa fa-refresh"></i></span>
+
+		</div>
+
       
       <div class="sidebar col-md-4">
          <div class="navbar-header container">
 			<div class="row headtitle">
 			  <div class="col-xs-6 logo"></div>
 			  <div class="col-xs-6 ">
-				  <div class="title ticker"> <!-- es una aceleradora 3D -->
+				  <div class="title ticker fade"> <!-- es una aceleradora 3D -->
 
 					<ul>
 					   <% @phrases.each do |phrase| %>
@@ -202,15 +241,15 @@ border:0;
 
 
 				  </div>
-				  <a href="https://twitter.com/search?q=bettercallbag" class="hashtag">#bettercallbag</a>
+				  <a href="https://twitter.com/search?q=bettercallbag" class="hashtag fade">#bettercallbag</a>
 			  </div>
 
 			</div>
-			<div class="row">
+			<div class="row fade">
 				<div class="col-md-4 content1"><b>Suscríbete a nuestra lista de correo</b>
  				y recibe noticias sobre proyectos y búsquedas de talento.*</div>
 			</div>
-			<div class="row">
+			<div class="row fade">
 				<div class="col-md-4 content1"><!-- Begin MailChimp Signup Form -->
 					<div id="mc_embed_signup">
 					<form action="//bettercallbag.us9.list-manage.com/subscribe/post?u=dac550a663439810a5536112e&amp;id=682c542446" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -231,7 +270,7 @@ border:0;
 
 					<!--End mc_embed_signup--></div>
 			</div>
-			<div class="row">
+			<div class="row fade">
 				<div class="contact">
 				llámanos al</br>
 				<a>+52 (55) 52842836</a></br></br>
@@ -262,6 +301,25 @@ border:0;
 				$( this ).val('tu dirección de correo');
 			}
 		});
-		
+
+
+		if (!matchMedia('only screen and (max-width: 480px)').matches) {
+					$( ".logo" ).hover(function() {
+			$('.sidebar').animate({
+				width : "33%"
+			});
+			$('.fade').animate({
+				opacity : "1"
+			});
+
+		});
+
+		}
+		// $( ".sidebar" ).mouseleave(function() {
+		// $(this).animate({
+		// 		width : "150px"
+		// 	});
+		// });
+
 
 	</script>
